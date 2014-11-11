@@ -1,0 +1,18 @@
+<% if @releases %>
+	<% @releases.each do |release| %>
+		<div class="panel">
+			<div class="panel-heading">
+				<h4><%= link_to "#{release.name} v#{release.version}", release %> <small class="btn-sm"><%= release.identifier %></small></h4>
+				
+				<div><small class="btn-sm"><%= release.created_at.strftime('%B %e, %Y %T') %></small></div>
+			</div>
+
+			<div class="panel-body">
+			<%	plist_url = manifest_url(release).sub('http', 'https').sub('localhost', '192.168.199.201') %>
+			<%= link_to "Install App", "itms-services://?action=download-manifest&url=#{plist_url}", class: "btn btn-primary" %>
+			</div>			
+		</div>
+	<% end %>
+<% end %>
+
+

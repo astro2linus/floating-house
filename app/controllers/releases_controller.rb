@@ -1,0 +1,39 @@
+class ReleasesController < ApplicationController
+	def new
+		@release = class_from_controller_name.new
+	end
+
+	def show
+		@release = Release.find params[:id]
+	end
+
+	def create
+		@release = class_from_controller_name.new(release_params)
+		if @release.save
+			flash[:success] = "release has been saved successfully"
+			redirect_to releases_path
+		else
+			render 'new'
+		end
+	end
+
+	def index
+		@releases = Release.all
+	end
+
+	def destroy
+		@release = Release.find(params[:id])
+		@release.destroy
+		redirect_to releases_url
+	end
+
+	private
+
+		def release_params
+			params.require(:ios_release).permit(:name, :version, :notes, :ipa_file, :plist_file)
+		end
+
+		def class_from_controller_name
+    	controller_name.singularize.camelize.constantize
+  	end
+end

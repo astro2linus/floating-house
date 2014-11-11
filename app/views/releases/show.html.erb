@@ -1,0 +1,19 @@
+<%= render 'header' %>
+<div class="panel">
+	<div panel-heading>
+		<h4><%= "#{@release.name} v#{@release.version}"%> <small class="btn-sm"><%= @release.identifier %></small></h4>
+		<div><small class="btn-sm"><%= @release.created_at.strftime('%B %e, %Y %T') %></small></div>
+	</div>
+		
+	<div class="panel-body">
+		<div class="col-lg-11">
+			<h5>Release notes:</h5>
+			<p><%= @release.notes %></p>
+			<%= link_to "Install App", manifest_ipa_url(@release), class: "btn btn-primary" %>
+		</div>
+		<div class="col-lg-1">
+			<span><%= link_to 'Destroy', @release, method: :delete, data: { confirm: 'Are you sure?' }, 
+			class: "btn-sm btn-danger" %></span>
+		</div>
+	</div>
+</div>

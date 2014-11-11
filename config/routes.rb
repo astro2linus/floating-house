@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'manifests/:id' => 'manifests#show', as: :manifest, :defaults => { :format => :xml }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   resources :products
+  resources :ios_releases
+  resources :releases
 
   # You can have the root of your site routed with "root"
   root 'products#index'

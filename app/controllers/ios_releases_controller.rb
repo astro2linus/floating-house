@@ -1,0 +1,2 @@
+class IosReleasesController < ReleasesController
+end

@@ -1,0 +1,29 @@
+<div class="col-md-8">
+  <%= form_for @release, html: {role: "form"} do |f| %>
+    <% if @release.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@release.errors.count, "error") %> prohibited this line_item from being saved:</h2>
+
+        <ul>
+        <% @release.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label "Ipa file:" %>
+      <%= f.file_field :ipa_file %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Release Notes:" %>
+      <%= f.text_area :notes, class: "form-control", rows: '4' %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Upload", :class => "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
