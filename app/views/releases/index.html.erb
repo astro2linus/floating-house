@@ -8,7 +8,7 @@
 			</div>
 
 			<div class="panel-body">
-			<%	plist_url = manifest_url(release).sub('http', 'https').sub('localhost', '192.168.199.201') %>
+			<%	plist_url = manifest_url(release).sub('http', 'https') %>
 			<%= link_to "Install App", "itms-services://?action=download-manifest&url=#{plist_url}", class: "btn btn-primary" %>
 			</div>			
 		</div>
