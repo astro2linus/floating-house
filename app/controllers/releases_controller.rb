@@ -11,14 +11,15 @@ class ReleasesController < ApplicationController
 		@release = class_from_controller_name.new(release_params)
 		if @release.save
 			flash[:success] = "release has been saved successfully"
-			redirect_to releases_path
+			redirect_to product_releases_path(@release.product)
 		else
 			render 'new'
 		end
 	end
 
 	def index
-		@releases = Release.all
+		@releases = Product.find(params[:product_id]).releases
+		#@releases = Release.all
 	end
 
 	def destroy

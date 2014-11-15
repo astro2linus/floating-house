@@ -5,7 +5,7 @@
 			<div class="panel">
 				<div class="panel-heading">
 					<h4>
-						<%= link_to "#{product.name}", releases_path(product) %>
+						<%= link_to "#{product.name}", product_releases_path(product) %>
 						<small class="btn-sm"><%= product.created_at.strftime('%B %e, %Y') %></small>
 					</h4>
 					<div>

@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
   get 'home/index'
-
-  get 'users/index'
-
   get 'manifests/:id' => 'manifests#show', as: :manifest, :defaults => { :format => :xml }
   get 'login' => 'sessions#new', as: :login
   get '/logout', :to => 'sessions#destroy'
@@ -13,9 +10,11 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :products
+  resources :products do 
+    resources :releases
+  end
   resources :ios_releases
-  resources :releases
+ 
   resources :users
 
   # You can have the root of your site routed with "root"
