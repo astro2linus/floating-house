@@ -1,15 +1,19 @@
 <div class="container">
-	<div class="jumbotron text-center">
-		<p>Distribute mobile apps over the air</p>
-		<%= link_to "Sign in", login_url, class: "btn btn-warning" %>
-	</div>
+	<% if @products %>
+	<% @products.each do |product| %>
+		<% if product.releases.any? %>
+			<div class="panel">
+				<div class="panel-heading">
+					<h4>
+						<%= link_to "#{product.name}", releases_path(product) %>
+						<small class="btn-sm"><%= product.created_at.strftime('%B %e, %Y') %></small>
+					</h4>
+					<div>
+						<small class="btn-sm"><%= product.identifier %></small>
+					</div>
+				</div>	
+			</div>
+		<% end %>	
+	<% end %>
+<% end %>
 </div>
-
-<div class="panel">
-	<%= link_to "Upload ipa", new_ios_release_path, class: "btn btn-primary" %>
-	<%= link_to "Upload apk", "#", class: "btn btn-primary" %>
-</div>
-
-
-<h1>Products</h1>			
-<%= link_to "Releases", ios_releases_path, class: "btn btn-primary" %>

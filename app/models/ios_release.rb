@@ -2,7 +2,6 @@ class IosRelease < Release
   include Mongoid::Document
   field :ipa_file
   field :identifier
-  field :display_name
   mount_uploader :ipa_file, ReleaseUploader
   before_save :load_details_from_ipa
   validates :ipa_file, presence: true
