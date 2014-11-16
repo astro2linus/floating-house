@@ -1,8 +1,10 @@
 <ol class="breadcrumb">
 	<li><%= link_to "Apps", products_url %></li>
-	<% if @release %>
+	<% if @releases %>
+		<li class="active"><%= @releases.last.product.name %></li>
+	<% elsif @release %>
 		<li><%= link_to @release.product.name, product_releases_path(@release.product) %></li>
-  	<li class="active"><%= @release.name %></li>
+  	<li class="active"><%= "#{@release.name} v#{@release.version}" %></li>
 	<% end %>
 </ol>
 
