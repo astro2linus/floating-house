@@ -31,7 +31,7 @@ class ReleasesController < ApplicationController
 	private
 
 		def release_params
-			params.require(:ios_release).permit(:name, :version, :notes, :ipa_file, :plist_file)
+			params.require(:ios_release).permit(:name, :version, :notes, :ipa_file, :icon, :plist_file)
 		end
 
 		def class_from_controller_name

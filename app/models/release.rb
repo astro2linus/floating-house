@@ -8,6 +8,7 @@ class Release
   field :notes
 
   belongs_to :product
+  has_many :icons, dependent: :destroy
 
   before_create :associate_product
 

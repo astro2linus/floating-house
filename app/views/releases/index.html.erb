@@ -5,7 +5,10 @@
 		<div class="panel">
 			<div class="panel-heading">
 				<h4>
+					<%= image_tag release.icons.first.icon_data.url.to_s.sub('eficon', 'eficon1'), size: "72x72" %>
 					<%= link_to "#{release.name} v#{release.version}", release %>
+					<% release.icons.first.icon_data.url %>
+					
 					<small class="btn-sm"><%= release.created_at.strftime('%B %e, %Y %T') %></small>
 				</h4>
 				

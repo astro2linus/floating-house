@@ -4,6 +4,10 @@
 		<% if product.releases.any? %>
 			<div class="panel">
 				<div class="panel-heading">
+					<div>
+						<%= image_tag product.releases.first.icons.first.icon_data.url.sub('eficon', 'eficon1'), size: "50x50" , style: "border-radius: 10px; box-shadow: 3px 3px 10px #aaa;" %>
+					</div>
+					
 					<h4>
 						<%= link_to "#{product.name}", product_releases_path(product) %>
 						<small class="btn-sm"><%= product.created_at.strftime('%B %e, %Y') %></small>
