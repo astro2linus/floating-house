@@ -1,8 +1,24 @@
 <div class="container">
 	<% if current_user %>
-		<div class="panel">
-			<%= link_to "Upload ipa", new_ios_release_path, class: "btn btn-primary" %>
-			<%= link_to "Upload apk", "#", class: "btn btn-primary" %>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="jumbotron text-center">
+					<h3>iOS</h3>
+					<p>
+						Add an iOS build by uploading an .IPA
+					</p>
+					<%= link_to "Upload .IPA", new_ios_release_path, class: "btn btn-primary" %>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="jumbotron text-center">
+					<h3>Android</h3>
+					<p>
+						Add an Android build by uploading an .APK
+					</p>
+					<%= link_to "Upload .APK", "#", class: "btn btn-primary" %>
+				</div>
+			</div>
 		</div>
 	<% else %>
 		<div class="jumbotron text-center">
