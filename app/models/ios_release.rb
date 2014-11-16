@@ -3,9 +3,7 @@ class IosRelease < Release
 
   field :ipa_file
   field :identifier
-  #field :icon
   mount_uploader :ipa_file, ReleaseUploader
-  #mount_uploader :icon, IconUploader
   before_save :load_details_from_ipa
   validates :ipa_file, presence: true
 
@@ -15,9 +13,13 @@ class IosRelease < Release
 		self.display_name = ipa.display_name || ipa.name || ipa.identifier || "No name"
 		self.identifier = ipa.identifier
 		self.version = ipa.version
-    #icon = self.icons.new(:icon_data => IconStringIO.new("foobar.png", ipa.icon))
-    icon = self.icons.new
-    icon.image_data = ipa.icon unless ipa.icon.blank?
-    icon.save!
+    self.icon = Icon.new
+
+    unless ipa.icon.blank?
+      ipa.uncrush_png
+      self.icon.icon_data = File.open(Rails.root.join('tmp', 'uncrushed_icon.png'))
+    end
+    self.icon.save!
+
 	end
 end

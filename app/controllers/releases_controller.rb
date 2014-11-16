@@ -24,8 +24,13 @@ class ReleasesController < ApplicationController
 
 	def destroy
 		@release = Release.find(params[:id])
+		@product = @release.product
 		@release.destroy
-		redirect_to releases_url
+		if @product.releases.blank?
+			redirect_to products_url 
+		else
+			redirect_to product_releases_url(@product)
+		end
 	end
 
 	private
