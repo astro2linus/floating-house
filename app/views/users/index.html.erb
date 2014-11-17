@@ -1,2 +1,19 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+	<% if @users %>
+		<% @users.each do |user| %>
+			<div class="panel">
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-xs-2" style="display:table !important; vertical-align: middle !important">
+						<%= image_tag gravatar(user) %>
+					</div>
+					<div class="col-lg-2 col-md-2 col-xs-3">
+						<%= link_to user.name, "#" %>
+					</div>
+					<div class="col-lg-2 col-md-2 col-xs-3">
+						<small><%= user.email %></small>
+					</div>
+				</div> <!-- end of div.row	 -->
+			</div><!-- end of div.panel	 -->
+		<% end %>	
+	<% end %>
+</div>

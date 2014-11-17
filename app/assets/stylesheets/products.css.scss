@@ -5,9 +5,32 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
+@media only screen and (max-width: 800px) {
+	#unseen table th:nth-child(3), 
+	#unseen table td:nth-child(3) {display: none !important;}
+}
+ 
+@media only screen and (max-width: 640px) {
+	#unseen table th:nth-child(3),
+	#unseen table td:nth-child(3) {display: none !important;}
+}
 
-/*	.jumbotron {
-		background-color: #77bfff;
-	}*/
+
+body {
+	.icon {
+		border-radius: 10px; 
+		box-shadow: 3px 3px 10px #aaa;
+	}
+
+	table#product	{
+
+		td.name {
+			padding-left: 10px;
+		}
+
+		td.updated_at, th.updated_at {
+			padding-left: 10px;
+		}
+	}
+
 }

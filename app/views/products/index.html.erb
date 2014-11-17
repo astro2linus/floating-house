@@ -1,24 +1,28 @@
 <div class="container">
 	<% if @products %>
-	<% @products.each do |product| %>
-		<% if product.releases.any? %>
-			<div class="panel">
-					<div class="row vcenter">
-						<div class="col-md-1 vcenter">
-							<%= image_tag product.releases.first.icon.icon_data.url, size: "40x40" , style: "border-radius: 10px; box-shadow: 3px 3px 10px #aaa; vertical-align: middle;" %>
-						</div>
-						<div class="col-xs-3 col-md-2 col-lg-2 vcenter">
-							<strong><%= link_to "#{product.name}", product_releases_path(product) %></strong>
-						</div>
-						<div class="col-md-2 vcenter">
-							<small class="btn-sm"><%= product.created_at.strftime('%b %e, %Y') %></small>
-						</div>
-						<div class="col-md-2 vcenter">
-							<small class="btn-sm"><%= product.identifier %></small>
-						</div>
-					</div>	
-			</div>
-		<% end %>	
-	<% end %>
-<% end %>
+	<table id="product" class="table table-striped">
+	<thead class="text-center">
+		<tr>
+			<th colspan="2">App</th>
+			<th class="updated_at"><small>Uploaded at</small></th>
+			<th class="latest_updated_version"><small>Latest Version</small></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @products.each do |product| %>
+			<tr>
+				<td>
+					<%= link_to (image_tag product.releases.first.icon.icon_data.url, size: "50x50", class: "icon"), product_releases_path(product) %>
+				</td>
+				<td class="name">
+					<span><h5><%= link_to "#{product.name}", product_releases_path(product), class: "product_name" %></h5></span>
+					<span><h5><small><%= product.identifier %></small></h5><span>
+				</td>
+				<td class="updated_at"><small><%= product.releases.last.updated_at.strftime('%b %e, %Y') %></small></td>
+				<td><%= product.releases.last.version %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %> <!-- end of @products -->
 </div>
