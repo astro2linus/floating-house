@@ -9,6 +9,22 @@
 </head>
 <body>
 	<%= render 'layouts/topbar' %>
+	<div class="container">
+		<% if flash.any? %>
+			<% if flash[:notice] %>
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<div class="alert alert-info">
+					<%= flash[:notice] %>
+				</div>
+			<% end %>
+			<% if flash[:alert] %>
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<div class="alert alert-info">
+					<%= flash[:alert] %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
 	<%= yield %>
 </body>
 </html>

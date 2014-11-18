@@ -1,38 +1,32 @@
-<div id="releases" class="container">
+<div class="container">
 	<%= render 'header' %>
 	<% if @releases %>
-	<% @releases.each do |release| %>
-		<div class="panel">
-			<div class="row">
-				<div class="col-lg-6 col-md-8 col-xs-9">		
-					<span class="col-lg-2 col-md-2 col-xs-3">
-						<%= image_tag release.icon.icon_data.url.to_s, size: "60x60", class: "icon" %>
-					</span>
-					
-					<span class="name col-lg-3 col-md-6 col-xs-5">
-						<small><%= link_to "#{release.name}", release %></small>
-					</span>
-
-					<span class="version col-lg-2 col-md-6 col-xs-5">
-						<small><%= link_to "v#{release.version}", release %></small>
-					</span>
-
-					<span class="col-lg-3 col-md-6 col-xs-5">
-						<small><%= release.created_at.strftime('%b %e, %H:%M') %></small>
-					</span>
-					<span class="col-lg-3 col-md-2 col-xs-3">
-						<small><%= release.identifier %></small>
-					</span>
-				</div>
-				<div>
-					<%	plist_url = manifest_url(release).sub('http', 'https') %>
-					<%= link_to "Install App", "itms-services://?action=download-manifest&url=#{plist_url}", class: "btn btn-primary" %>
-				</div>
-			</div>			
-		</div>
-	<% end %>
-<% end %>
+		<table id="release" class="table table-striped">
+			<thead class="text-center">
+				<tr>
+					<th colspan="2">App</th>
+					<th class="latest_updated_version"><small>Version</small></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @releases.each do |release| %>
+					<tr>
+						<td>
+							<%= link_to (image_tag release.icon.icon_data.url, size: "50x50", class: "icon"), release %>
+						</td>
+						<td class="name">
+							<span><small><h6><%= link_to "#{release.name}", release, class: "product_name" %></h6></small></span>
+							<span><h6><small><%= release.updated_at.strftime('%b %e, %Y') %></small></h6><span>
+						</td>
+						<td><%= release.version %></td>
+						<td>
+							<%	plist_url = manifest_url(release).sub('http', 'https') %>
+							<%= link_to "Install", "itms-services://?action=download-manifest&url=#{plist_url}", class: "btn btn-primary" %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %> <!-- end of @releases -->
 </div>
-
-
-

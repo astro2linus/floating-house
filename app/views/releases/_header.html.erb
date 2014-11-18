@@ -4,7 +4,6 @@
 		<li class="active"><small><%= @releases.last.product.name %></small></li>
 	<% elsif @release %>
 		<li><small><%= link_to @release.product.name, product_releases_path(@release.product) %></small></li>
-  	<li class="active"><small><%= "#{@release.name} v#{@release.version}" %></small></li>
+  	<li class="active"><small><%= "#{@release.name}" %></small></li>
 	<% end %>
 </ol>
-

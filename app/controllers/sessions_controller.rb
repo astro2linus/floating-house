@@ -8,13 +8,17 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    redirect_to login_url, alert: "Invalid email/password combination"
+    redirect_to :back || eflogin_url, alert: "Invalid email/password combination"
   end
 
   def create
-  	if @current_user = User.find_or_create_by_auth(auth)
+  	if auth.blank?
+      redirect_to :back, alert: "Cannot login"
+    elsif @current_user = User.find_or_create_by_auth(auth)
 	  	session[:user_id] = @current_user.id
-	  	redirect_to root_url, notice: "Signed in!"
+	  	redirect_to products_url
+    else
+      failure
 	  end
   end
 
