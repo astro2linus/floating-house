@@ -4,6 +4,9 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def identity_login
+  end
+
   def failure
     redirect_to login_url, alert: "Invalid email/password combination"
   end

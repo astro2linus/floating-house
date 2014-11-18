@@ -4,7 +4,6 @@
 	<thead class="text-center">
 		<tr>
 			<th colspan="2">App</th>
-			<th class="updated_at"><small>Uploaded at</small></th>
 			<th class="latest_updated_version"><small>Latest Version</small></th>
 		</tr>
 	</thead>
@@ -16,9 +15,8 @@
 				</td>
 				<td class="name">
 					<span><h5><%= link_to "#{product.name}", product_releases_path(product), class: "product_name" %></h5></span>
-					<span><h5><small><%= product.identifier %></small></h5><span>
+					<span><h6><small><%= product.releases.last.updated_at.strftime('%b %e, %Y') %></small></h6><span>
 				</td>
-				<td class="updated_at"><small><%= product.releases.last.updated_at.strftime('%b %e, %Y') %></small></td>
 				<td><%= product.releases.last.version %></td>
 			</tr>
 		<% end %>

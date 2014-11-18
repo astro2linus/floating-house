@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   get 'home/index'
   get 'manifests/:id' => 'manifests#show', as: :manifest, :defaults => { :format => :xml }
-  get 'login' => 'sessions#new', as: :login
+  get 'login' => 'sessions#identity_login', as: :login
+  get 'eflogin' => 'sessions#new', as: :eflogin
   get '/logout', :to => 'sessions#destroy'
   get '/auth/failure', to: 'sessions#failure'
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

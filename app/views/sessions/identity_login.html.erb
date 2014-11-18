@@ -1,10 +1,10 @@
 <div class="container">
-    <%= form_tag '/auth/ldap/callback', class: 'well form-horizontal col-lg-4 col-centered text-center' do |f| %>
+    <%= form_tag '/auth/identity/callback', class: 'well form-horizontal col-lg-4 col-centered text-center' do |f| %>
       <h3>Please log in</h3>
       <br />
         <div class="control-group col-centered">
           <div class="controls">
-            <%= text_field_tag :auth_key, nil, :placeholder => "EF Username", :class => "form-control" %>
+            <%= text_field_tag :auth_key, nil, :placeholder => "Email", :class => "form-control" %>
           </div>
         </div>
         <br />
@@ -19,7 +19,7 @@
         </div>
         <br/>
         <div class="control-group col-centered">
-          <%= link_to "Or sign in with your registered email >>", login_url %>
+          <%= link_to "<< Or sign in with EF username", eflogin_url %>
         </div>
     <% end %>
 </div>

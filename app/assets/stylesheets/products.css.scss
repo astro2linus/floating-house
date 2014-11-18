@@ -5,14 +5,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 800px) {
 	#unseen table th:nth-child(3), 
 	#unseen table td:nth-child(3) {display: none !important;}
+
+	#releases {
+		.name {
+		}
+
+		.version {
+		}
+	}
 }
  
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 480px) {
 	#unseen table th:nth-child(3),
 	#unseen table td:nth-child(3) {display: none !important;}
+
+	#releases {
+		.name, .version {
+		}
+	}
 }
 
 
@@ -31,6 +44,10 @@ body {
 		td.updated_at, th.updated_at {
 			padding-left: 10px;
 		}
+	}
+
+	#releases {
+
 	}
 
 }
