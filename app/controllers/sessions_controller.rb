@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	protect_from_forgery :except => [:create]
+  skip_before_filter :validate_user
 
   def new
   end

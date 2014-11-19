@@ -1,6 +1,6 @@
 <div class="container">
     <%= form_tag '/auth/ldap/callback', class: 'well form-horizontal col-lg-4 col-centered text-center' do |f| %>
-      <h3>Please log in</h3>
+      <h3>Please login</h3>
       <br />
         <div class="control-group col-centered">
           <div class="controls">
@@ -19,7 +19,7 @@
         </div>
         <br/>
         <div class="control-group col-centered">
-          <%= link_to "Or sign in with your registered email >>", login_url %>
+          <%= link_to "Or login with your registered email >>", login_url %>
         </div>
     <% end %>
 </div>

@@ -40,8 +40,11 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'CFPropertyList', '~> 2.2.8'
 gem 'ipa'
 gem "omniauth"
+gem "omniauth-ldap"
 gem 'omniauth-identity'
 gem 'gravatar-ultimate'
+gem 'cancancan'
+gem 'rolify'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

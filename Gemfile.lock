@@ -49,6 +49,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    cancancan (1.9.2)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -139,6 +140,7 @@ GEM
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
     multi_json (1.10.1)
+    net-ldap (0.3.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -150,8 +152,14 @@ GEM
     omniauth-identity (1.1.1)
       bcrypt-ruby (~> 3.0)
       omniauth (~> 1.0)
+    omniauth-ldap (1.0.4)
+      net-ldap (~> 0.3.1)
+      omniauth (~> 1.0)
+      pyu-ruby-sasl (~> 0.0.3.1)
+      rubyntlm (~> 0.1.1)
     optionable (0.2.0)
     origin (2.1.1)
+    pyu-ruby-sasl (0.0.3.3)
     rack (1.6.0.beta)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -182,6 +190,8 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    rolify (3.4.1)
+    rubyntlm (0.1.1)
     rubyzip (0.9.9)
     sass (3.4.7)
     sass-rails (5.0.0.beta1)
@@ -227,6 +237,7 @@ DEPENDENCIES
   CFPropertyList (~> 2.2.8)
   bootstrap-sass (~> 3.2.0)
   byebug
+  cancancan
   carrierwave (~> 0.10.0)
   carrierwave-mongoid
   coffee-rails (~> 4.1.0)
@@ -239,7 +250,9 @@ DEPENDENCIES
   mongoid (~> 4.0.0)
   omniauth
   omniauth-identity
+  omniauth-ldap
   rails (= 4.2.0.beta4)
+  rolify
   sass-rails (~> 5.0.0.beta1)
   sdoc (~> 0.4.0)
   spring
