@@ -11,6 +11,6 @@
 /log/*.log
 /tmp
 
-config/secrets.yml
 public/uploads/
 .DS_Store
+public/server.crt
