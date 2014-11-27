@@ -12,10 +12,12 @@
 				<p><%= @release.notes %></p>
 				<%= link_to "Install App", manifest_ipa_url(@release), class: "btn btn-primary" %>
 			</div>
-			<div class="col-lg-1">
-				<span><%= link_to 'Destroy', @release, method: :delete, data: { confirm: 'Are you sure?' }, 
-				class: "btn-sm btn-danger" %></span>
-			</div>
+			<% if current_user.has_role? :admin %>
+				<div class="col-lg-1">
+					<span><%= link_to 'Destroy', @release, method: :delete, data: { confirm: 'Are you sure?' }, 
+					class: "btn-sm btn-danger" %></span>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>
