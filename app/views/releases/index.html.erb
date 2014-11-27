@@ -21,8 +21,7 @@
 						</td>
 						<td><%= release.version %></td>
 						<td>
-							<%	plist_url = manifest_url(release).sub('http', 'https') %>
-							<%= link_to "Install", "itms-services://?action=download-manifest&url=#{plist_url}", class: "btn btn-primary" %>
+							<%= link_to "Install", "itms-services://?action=download-manifest&url=#{manifest_ipa_url(release)}", class: "btn btn-primary" %>
 						</td>
 					</tr>
 				<% end %>

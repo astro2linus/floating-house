@@ -1,4 +1,5 @@
 class ManifestsController < ApplicationController
+  skip_before_filter :validate_user
 	force_ssl
 
   def show
