@@ -10,9 +10,6 @@
 	#unseen table td:nth-child(3) {display: none !important;}
 
 	#releases {
-		.name {
-		}
-
 		.version {
 		}
 	}
@@ -23,8 +20,7 @@
 	#unseen table td:nth-child(3) {display: none !important;}
 
 	#releases {
-		.name, .version {
-		}
+
 	}
 }
 
@@ -36,18 +32,36 @@ body {
 	}
 
 	table#product	{
-
 		td.name {
 			padding-left: 10px;
+		}
+
+		td.version {
+			padding-top: 15px; 
 		}
 
 		td.updated_at, th.updated_at {
 			padding-left: 10px;
 		}
+
 	}
 
-	#releases {
+	table#releases {
+		td.name {
+			padding-left: 5px;
+			padding-top: 0px;
+		}
 
+		td.notes {
+		}
+
+		td.version, td.notes {
+			padding-top: 7px;
+		}
+
+		td.install-btn {
+			padding-top: 15px;
+		}
 	}
 
 }

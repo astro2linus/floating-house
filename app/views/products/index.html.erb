@@ -18,7 +18,7 @@
 						<span><h5><%= link_to "#{product.name}", product_releases_path(product), class: "product_name" %></h5></span>
 						<span><h6><small><%= product.releases.last.updated_at.strftime('%b %e, %Y') %></small></h6><span>
 					</td>
-					<td><%= product.releases.last.version %></td>
+					<td class="version"><small><%= product.releases.last.version %></small></td>
 				</tr>
 			<% end %>
 		<% end %>

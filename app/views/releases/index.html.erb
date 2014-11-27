@@ -1,11 +1,12 @@
 <div class="container">
 	<%= render 'header' %>
 	<% if @releases %>
-		<table id="release" class="table table-striped">
+		<table id="releases" class="table table-striped">
 			<thead class="text-center">
 				<tr>
 					<th colspan="2">App</th>
 					<th class="latest_updated_version"><small>Version</small></th>
+					<th><small>Notes</small></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -16,11 +17,14 @@
 							<%= link_to (image_tag release.icon.icon_data.url, size: "50x50", class: "icon"), release %>
 						</td>
 						<td class="name">
-							<span><small><h6><%= link_to "#{release.name}", release, class: "product_name" %></h6></small></span>
+							<span><h5><small><%= link_to "#{release.name}", release, class: "product_name" %></small></h5></span>
 							<span><h6><small><%= release.updated_at.strftime('%b %e, %Y') %></small></h6><span>
 						</td>
-						<td><%= release.version %></td>
-						<td>
+						<td class="version"><small><%= release.version %></small></td>
+						<td class="notes">
+							<small><%= truncate(release.notes, length: 20) %> </small>
+						</td>
+						<td class="install-btn">
 							<%= link_to "Install", "itms-services://?action=download-manifest&url=#{manifest_ipa_url(release)}", class: "btn btn-primary" %>
 						</td>
 					</tr>
