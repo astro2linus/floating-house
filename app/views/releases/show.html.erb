@@ -1,23 +1,26 @@
 <div class="container">
 	<%= render 'header' %>
 	<div class="panel">
-		<div panel-heading>
-			<h4><%= "#{@release.name} v#{@release.version}"%> <small class="btn-sm"><%= @release.identifier %></small></h4>
-			<div><small class="btn-sm"><%= @release.created_at.strftime('%B %e, %Y %T') %></small></div>
+		<div class="panel-heading">
+			<h5><%= "#{@release.name} v#{@release.version}"%>
+				<br>
+				<small class="btn-sm"><%= @release.identifier %></small>
+				<br>
+				<small class="btn-sm"><%= @release.created_at.strftime('%b %e, %Y %H:%M') %></small>
+			</h5>
 		</div>
-			
+
 		<div class="panel-body">
-			<div class="col-lg-11">
-				<h5>Release notes:</h5>
-				<p><%= @release.notes %></p>
-				<%= link_to "Install App", manifest_ipa_url(@release), class: "btn btn-primary" %>
-			</div>
+			<h5>Release notes:</h5>
+			<p><%= @release.notes %></p>
+			<%= link_to "Install", manifest_ipa_url(@release), class: "btn btn-primary" %>
 			<% if current_user.has_role? :admin %>
-				<div class="col-lg-1">
-					<span><%= link_to 'Destroy', @release, method: :delete, data: { confirm: 'Are you sure?' }, 
-					class: "btn-sm btn-danger" %></span>
+				<div class="btn-destroy">
+					<%= link_to 'Delete', @release, method: :delete, data: { confirm: 'Are you sure?' }, 
+					class: "btn btn-danger" %>
 				</div>
 			<% end %>
 		</div>
 	</div>
+
 </div>

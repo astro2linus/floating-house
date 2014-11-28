@@ -4,9 +4,9 @@
 		<table id="releases" class="table table-striped">
 			<thead class="text-center">
 				<tr>
-					<th colspan="2">App</th>
-					<th class="latest_updated_version"><small>Version</small></th>
-					<th><small>Notes</small></th>
+					<th>App</th>
+					<th></th>
+					<th>Notes</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -17,13 +17,14 @@
 							<%= link_to (image_tag release.icon.icon_data.url, size: "50x50", class: "icon"), release %>
 						</td>
 						<td class="name">
-							<span><h5><small><%= link_to "#{release.name}", release, class: "product_name" %></small></h5></span>
-							<span><h6><small><%= release.updated_at.strftime('%b %e, %Y') %></small></h6><span>
+							<h5><small><%= link_to "#{release.name}", release, class: "product_name" %></small>
+								<br>
+								<small><%= release.version %></small>
+								<br>
+								<small><%= release.updated_at.strftime('%m/%e, %H:%M') %></small>
+							</h5>
 						</td>
-						<td class="version"><small><%= release.version %></small></td>
-						<td class="notes">
-							<small><%= truncate(release.notes, length: 20) %> </small>
-						</td>
+						<td class="notes"><small><%= truncate(release.notes, length: 50) %> </small></td>
 						<td class="install-btn">
 							<%= link_to "Install", "itms-services://?action=download-manifest&url=#{manifest_ipa_url(release)}", class: "btn btn-primary" %>
 						</td>
