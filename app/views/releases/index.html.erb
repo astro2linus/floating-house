@@ -24,9 +24,9 @@
 								<small><%= release.updated_at.strftime('%m/%e, %H:%M') %></small>
 							</h5>
 						</td>
-						<td class="notes"><small><%= truncate(release.notes, length: 50) %> </small></td>
+						<td class="notes"><small><%= truncate(release.notes, length: 30) %> </small></td>
 						<td class="install-btn">
-							<%= link_to "Install", "itms-services://?action=download-manifest&url=#{manifest_ipa_url(release)}", class: "btn btn-primary" %>
+							<%= link_to "Install", "itms-services://?action=download-manifest&url=#{manifest_ipa_url(release)}", class: "btn-sm btn-primary" %>
 						</td>
 					</tr>
 				<% end %>
