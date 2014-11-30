@@ -4,7 +4,7 @@
 			<div class="panel">
 				<div class="row">
 					<div class="col-lg-2 col-md-2 col-xs-2" style="display:table !important; vertical-align: middle !important">
-						<%= image_tag gravatar(user) %>
+						<%= image_tag user.gravatar_url(:size => 30) %>
 					</div>
 					<div class="col-lg-2 col-md-2 col-xs-3">
 						<%= link_to user.name, "#" %>
