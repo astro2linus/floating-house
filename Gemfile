@@ -42,7 +42,8 @@ gem 'ipa'
 gem "omniauth"
 gem "omniauth-ldap"
 gem 'omniauth-identity'
-gem 'gravatar-ultimate'
+#gem 'gravatar-ultimate'
+gem 'gravtastic'
 gem 'cancancan'
 gem 'rolify'
 

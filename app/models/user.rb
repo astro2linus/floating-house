@@ -7,9 +7,13 @@ class User
   field :email, type: String
 
   has_many :authorizations, dependent: :destroy
+  has_and_belongs_to_many :groups
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :name, presence: true
+
+  include Gravtastic
+  gravtastic
 
   class << self
 
