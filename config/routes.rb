@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
-  get 'home/upload'
+  root 'home#index'
+  get 'products/upload', as: :upload
   get 'manifests/:id' => 'manifests#show', as: :manifest, :defaults => { :format => :xml }
   get 'login' => 'sessions#identity_login', as: :login
   get 'eflogin' => 'sessions#new', as: :eflogin
@@ -20,8 +20,6 @@ Rails.application.routes.draw do
  
   resources :users
   resources :groups
-
-  root 'products#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
