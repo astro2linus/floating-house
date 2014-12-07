@@ -1,0 +1,8 @@
+<ol class="breadcrumb">
+	<li><small><%= link_to "Apps", products_url %></small></li>
+	<li class="active"><small><%= @product.name %></small></li>
+</ol>
+<ul class="nav nav-tabs">
+  <li role="presentation" class="<%= 'active' if params[:controller]=='releases' %>"><%= link_to "Builds", product_releases_url(@product) %></li>
+  <li role="presentation" class="<%= 'active' if params[:controller]=='products' %>"><%= link_to "Manage Product", edit_product_url(@product) %></li>
+</ul>

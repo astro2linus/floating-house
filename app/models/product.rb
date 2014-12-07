@@ -9,4 +9,5 @@ class Product
   mount_uploader :icon, IconUploader
 
   has_many :releases, dependent: :destroy
+  has_many :groups, dependent: :destroy
 end

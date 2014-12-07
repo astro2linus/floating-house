@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-%w(admin common).each do |role|
+%w(admin developer tester).each do |role|
   Role.create name: role
 end 
 

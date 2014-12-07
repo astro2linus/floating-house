@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'home/index'
+  get 'home/upload'
   get 'manifests/:id' => 'manifests#show', as: :manifest, :defaults => { :format => :xml }
   get 'login' => 'sessions#identity_login', as: :login
   get 'eflogin' => 'sessions#new', as: :eflogin
@@ -13,13 +14,14 @@ Rails.application.routes.draw do
 
   resources :products do 
     resources :releases
+    resources :groups
   end
   resources :ios_releases
  
   resources :users
+  resources :groups
 
-  # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'products#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

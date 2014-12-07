@@ -18,7 +18,8 @@ class ReleasesController < ApplicationController
 	end
 
 	def index
-		@releases = Product.find(params[:product_id]).releases
+		@product = Product.find(params[:product_id])
+		@releases = @product.releases
 		#@releases = Release.all
 	end
 
