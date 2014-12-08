@@ -1,3 +1,12 @@
+<script type="text/javascript">
+	$(function() {
+	  $.get('https://'+ window.location.host + '/ssl_test')
+	   .done()
+	   .fail(function() {
+	   		window.location.replace("/install_certificate");
+	 		})
+	});
+</script>
 <% provide(:title, "FH Apps") %>
 <div class="container">
 	<% if @products %>

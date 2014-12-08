@@ -1,5 +1,6 @@
 class ManifestsController < ApplicationController
   skip_before_filter :validate_user
+  after_filter :set_access_control_headers
 	force_ssl
 
   def show
@@ -26,4 +27,12 @@ class ManifestsController < ApplicationController
     render text: xml_parser.to_str(root: plist.value)
   end
 
+  def ssl_test
+    render text: 'ok' 
+  end
+
+  def set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = "*"
+    headers['Access-Control-Request-Method'] = %w{GET POST OPTIONS}.join(",")
+  end
 end

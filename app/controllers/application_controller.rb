@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def validate_user
     unless current_user
-      redirect_to root_url, alert: "Please login"
+      redirect_to eflogin_url, alert: "Please login"
     end
   end
 
@@ -32,4 +32,5 @@ class ApplicationController < ActionController::Base
 	def authorize_manage_release
 		authorize! :manage, @release
 	end
+
 end

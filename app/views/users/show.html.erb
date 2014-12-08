@@ -1,0 +1,11 @@
+<div class="container">
+	<% if user = current_user %>
+		<ul>
+			<li><%= user.email %></li>
+			<li><%= user.name %></li>
+		</ul>
+		<% current_user.roles.each do |role| %>
+			<%= role.name %>
+		<% end %>
+	<% end %>
+</div>

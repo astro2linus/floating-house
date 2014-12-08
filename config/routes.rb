@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root 'products#index'
   get 'products/upload', as: :upload
   get 'manifests/:id' => 'manifests#show', as: :manifest, :defaults => { :format => :xml }
+  get '/ssl_test' => 'manifests#ssl_test'
+  get '/install_certificate' => 'home#install_certificate'
   get 'login' => 'sessions#identity_login', as: :login
   get 'eflogin' => 'sessions#new', as: :eflogin
-  get '/logout', :to => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
   get '/auth/failure', to: 'sessions#failure'
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   end
   resources :ios_releases
  
-  resources :users
+  resources :users, only: [:show, :index]
   resources :groups
 
   # Example of regular route:
