@@ -1,4 +1,20 @@
 <% provide(:title, "FH Manage App") %>
 <div class="container">
 	<%= render 'breadcrumb' %>
+	<div id="product-info">
+		<p>
+			<%= form_for @product do |f| -%>
+				<%= image_tag @product.icon.url, size: "60x60", class: "icon" %>
+				<%= f.file_field :icon %>
+				<%= f.label "Name:" %>
+				<%= @product.name %> <br/>
+				<% f.label "Identifier:" %>
+				<% @product.identifier %> <br/>
+				<%= f.label :description %>
+				<%= f.text_area :description, class: "form-control", rows: '2'  %> 
+				<%= f.submit "Save" %> 
+			<% end -%>
+
+		</p>
+	</div>
 </div>

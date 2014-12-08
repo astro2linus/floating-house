@@ -10,4 +10,5 @@ class Product
 
   has_many :releases, dependent: :destroy
   has_many :groups, dependent: :destroy
+  
 end
