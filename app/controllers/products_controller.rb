@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
 	before_filter :authorize_view_product, only: [:show]
   before_filter :authorize_view_release, only: [:show]
-	before_filter :authorize_manage_product, only: [:edit, :update, :destroy, :upload]
+	before_filter :authorize_manage_product, only: [:edit, :update, :destroy]
 	
 	def index
 		@products = Product.all
@@ -12,7 +12,8 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 	end
 
-	def upload	
+	def upload
+		authorize! :upload, Product, message: "You are not authorized to upload products"
   end
 
   def update

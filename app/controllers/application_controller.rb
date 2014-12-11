@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   before_filter :validate_user
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.root_url, :alert => exception.message
+  end
+
   def current_user
   	@current_user ||= User.where(_id: session[:user_id]).first
   end
@@ -22,7 +26,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authorize_manage_product
-		authorize! :manage, @product
+		authorize! :manage, @product, :message => "You are not authorized to manage this product."
 	end
 
   def authorize_view_release

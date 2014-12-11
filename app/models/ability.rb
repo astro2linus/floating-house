@@ -10,7 +10,7 @@ class Ability
       elsif user.is_developer?
         can :manage, :all
       else
-        cannot :read, :all
+        can :read, :all
       end
     #
     # The first argument to `can` is the action you are giving the user
