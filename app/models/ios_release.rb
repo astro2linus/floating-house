@@ -8,18 +8,17 @@ class IosRelease < Release
   validates :ipa_file, presence: true
 
   def load_details_from_ipa
-		ipa  = IPA::IPAFile.open(Rails.root.join('public', ipa_file.path).to_s)
-		self.name =  ipa.name
-		self.display_name = ipa.display_name || ipa.name || ipa.identifier || "No name"
-		self.identifier = ipa.identifier
-		self.version = ipa.version
+    ipa  = IpaParser::IpaFile.new(Rails.root.join('public', ipa_file.path).to_s)
+    self.name =  ipa.name
+    self.display_name = ipa.display_name || ipa.name || ipa.identifier || "No name"
+    self.identifier = ipa.identifier
+    self.version = ipa.version
     self.icon = Icon.new
 
     unless ipa.icon.blank?
-      ipa.uncrush_png
-      self.icon.icon_data = File.open(Rails.root.join('tmp', 'uncrushed_icon.png'))
+      File.open(Rails.root.join('tmp', 'icon.png'), 'wb') { |file| file.write(ipa.icon) }
+      self.icon.icon_data = File.open(Rails.root.join('tmp', 'icon.png'))
     end
     self.icon.save!
-
-	end
+  end
 end
