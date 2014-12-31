@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  mount GrapeSwaggerRails::Engine => '/swagger'
+  mount FH::API => '/'
+  
   root 'products#index'
   get 'products/upload', as: :upload
   get 'manifests/:id' => 'manifests#show', as: :manifest, :defaults => { :format => :xml }
