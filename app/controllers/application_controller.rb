@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def validate_user
     unless current_user
-      redirect_to eflogin_url, alert: "Please login"
+      redirect_to login_url, alert: "Please login"
     end
   end
 
