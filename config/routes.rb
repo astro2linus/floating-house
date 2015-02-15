@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount GrapeSwaggerRails::Engine => '/swagger'
+  mount GrapeSwaggerRails::Engine => '/docs'
   mount FH::API => '/'
   
   root 'products#index'

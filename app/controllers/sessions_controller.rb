@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    redirect_to :back || eflogin_url, alert: "Invalid email/password combination"
+    redirect_to :back || login_url, alert: "Invalid email/password combination"
   end
 
   def create
