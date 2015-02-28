@@ -71,4 +71,6 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  routes.default_url_options = { host: "10.128.43.58", port: 80 }
 end
