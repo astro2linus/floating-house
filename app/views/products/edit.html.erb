@@ -3,6 +3,12 @@
 	<%= render 'breadcrumb' %>
 	<div id="product-info">
 		<p>
+			<% if current_user.has_role? :admin %>
+				<%= link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' }, 
+				class: "btn btn-danger", style: "float: right;" %>
+			<% end %>
+		</p>
+		<p>
 			<%= form_for @product do |f| -%>
 				<%= image_tag @product.icon.url, size: "60x60", class: "icon" %>
 				<%= f.file_field :icon %> <br/>
@@ -14,7 +20,6 @@
 				<%= f.text_area :description, class: "form-control", rows: '2'  %> <br/>
 				<%= f.submit "Save", class: "btn btn-primary" %> 
 			<% end -%>
-
 		</p>
 	</div>
 </div>

@@ -11,9 +11,15 @@ class ManifestsController < ApplicationController
         assets: [{
           kind: 'software-package',
           url: "#{root_url}#{@release.ipa_file.url}"
-        }],
+        },
+        {
+          kind: 'display-image',
+          url: "#{root_url}#{@release.icon.icon_data.url}"
+        }
+        ],
         metadata: {
-          'bundle-identifier' => @release.identifier,
+          'bundle-identifier' => @release.identifier + Time.now.to_f.to_s,
+          'bundle-version' => @release.version,
           kind: 'software',
           subtitle: @release.name,
           title: @release.name
