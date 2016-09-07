@@ -1,0 +1,40 @@
+<div class="container">
+  <%= form_tag "/auth/identity/register", class: 'well form-horizontal col-lg-4 col-centered text-center' do %>
+    <% if @identity && @identity.errors.any? %>
+      <div class="error_messages">
+        <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
+        <ul>
+        <% @identity.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <h3>Sign up</h3>
+
+    <div class="controls">
+      <%= text_field_tag :name, @identity.try(:name), :placeholder => "Name", :class => "form-control" %>
+    </div>
+    <br/>
+    <div class="controls">
+      <%= text_field_tag :email, @identity.try(:email), :placeholder => "Email", :class => "form-control" %>
+    </div>
+    <br/>
+    <div class="controls">
+      <%= password_field_tag :password, nil, :placeholder => "Password", :class => "form-control" %>
+    </div>
+    <br/>
+    <div class="controls">
+      <%= password_field_tag :password_confirmation, nil, :placeholder => "Password confirmation", :class => "form-control" %>
+    </div>
+    <br/>
+    <div class="control-group col-centered">
+      <%= submit_tag "Register", class: "btn btn-primary"%>
+    </div>
+    <br/>
+    <div class="control-group col-centered">
+      <%= link_to "Or login with your account >>", login_path %>
+    </div>
+  <% end %>
+</div>

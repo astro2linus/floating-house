@@ -38,7 +38,6 @@ gem 'mini_magick', '~> 3.8.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'CFPropertyList', '~> 2.2.8'
 gem "omniauth"
-gem "omniauth-ldap"
 gem 'omniauth-identity'
 gem 'gravtastic'
 gem 'cancancan'

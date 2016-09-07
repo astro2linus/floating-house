@@ -143,7 +143,6 @@ GEM
     multi_xml (0.5.5)
     mustermann19 (0.4.4)
       enumerable-lazy
-    net-ldap (0.15.0)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -153,14 +152,8 @@ GEM
     omniauth-identity (1.1.1)
       bcrypt-ruby (~> 3.0)
       omniauth (~> 1.0)
-    omniauth-ldap (1.0.5)
-      net-ldap (~> 0.12)
-      omniauth (~> 1.0)
-      pyu-ruby-sasl (~> 0.0.3.2)
-      rubyntlm (~> 0.3.4)
     origin (2.2.0)
     pkg-config (1.1.7)
-    pyu-ruby-sasl (0.0.3.3)
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -194,7 +187,6 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     rolify (5.1.0)
-    rubyntlm (0.3.4)
     rubyzip (1.1.7)
     sass (3.4.22)
     sass-rails (5.0.6)
@@ -259,7 +251,6 @@ DEPENDENCIES
   mongoid!
   omniauth
   omniauth-identity
-  omniauth-ldap
   rails (= 4.2.7)
   rolify
   sass-rails (~> 5.0)

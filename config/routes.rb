@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'manifests/:id' => 'manifests#show', as: :manifest, :defaults => { :format => :xml }
   get '/ssl_test' => 'manifests#ssl_test'
   get '/install_certificate' => 'home#install_certificate'
-  get 'login' => 'sessions#identity_login', as: :login
-  get 'eflogin' => 'sessions#new', as: :eflogin
+  get 'login' => 'sessions#new', as: :login
+  get 'login' => 'sessions#create', as: :signup
   get '/logout' => 'sessions#destroy'
   get '/auth/failure', to: 'sessions#failure'
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  resources :identities
+  
   resources :products do 
     resources :releases
     resources :groups
