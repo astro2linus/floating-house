@@ -1,11 +1,11 @@
 development:
   # Configure available database sessions. (required)
-  sessions:
-    # Defines the default session. (required)
+  clients:
+    # Defines the default client. (required)
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: ota_install_development
+      database: floating_house_development
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
@@ -56,9 +56,9 @@ development:
     # Ensure all times are UTC in the app side. (default: false)
     # use_utc: false
 test:
-  sessions:
+  clients:
     default:
-      database: ota_install_test
+      database: floating_house_test
       hosts:
         - localhost:27017
       options:
@@ -69,9 +69,9 @@ test:
         retry_interval: 0
 
 production:
-  sessions:
+  clients:
     default:
       hosts:
         - localhost
-      database: ota_install_production
+      database: floating_house_production
 
