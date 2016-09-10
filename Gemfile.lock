@@ -111,9 +111,9 @@ GEM
     hashie (3.4.4)
     i18n (0.7.0)
     ice_nine (0.11.2)
-    ipa-parser (0.0.3)
-      CFPropertyList (~> 2.3.3)
-      rubyzip (~> 1.1.0)
+    ipa-parser (0.0.4)
+      CFPropertyList (~> 2.3)
+      rubyzip (~> 1.1)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -187,7 +187,7 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     rolify (5.1.0)
-    rubyzip (1.1.7)
+    rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -243,7 +243,7 @@ DEPENDENCIES
   grape-swagger
   grape-swagger-rails
   gravtastic
-  ipa-parser (= 0.0.3)
+  ipa-parser (= 0.0.4)
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick (~> 3.8.0)

@@ -36,7 +36,7 @@ gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick', '~> 3.8.0'
 gem 'bootstrap-sass', '~> 3.2.0'
-gem 'ipa-parser', '0.0.3'
+gem 'ipa-parser', '0.0.4'
 gem "omniauth"
 gem 'omniauth-identity'
 gem 'gravtastic'

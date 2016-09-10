@@ -13,12 +13,5 @@ class IosRelease < Release
     self.display_name = ipa.display_name || ipa.name || ipa.identifier || "No name"
     self.identifier = ipa.identifier
     self.version = ipa.version
-    self.icon = Icon.new
-
-    unless ipa.icon.blank?
-      File.open(Rails.root.join('tmp', 'icon.png'), 'wb') { |file| file.write(ipa.icon) }
-      self.icon.icon_data = File.open(Rails.root.join('tmp', 'icon.png'))
-    end
-    self.icon.save!
   end
 end

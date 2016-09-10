@@ -16,7 +16,7 @@
 				<% @releases.each do |release| %>
 					<tr>
 						<td>
-							<%= link_to (image_tag release.icon.icon_data.url, size: "50x50", class: "icon"), release %>
+							<%= link_to (image_tag image_path('default_ios_app_icon.png'), size: "50x50", class: "icon"), release %>
 						</td>
 						<td class="name">
 							<h5><small><%= link_to "#{release.name}", release, class: "product_name" %></small>
