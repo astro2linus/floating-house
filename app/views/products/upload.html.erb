@@ -6,9 +6,9 @@
 				<div class="jumbotron text-center">
 					<h3>iOS</h3>
 					<p>
-						Add an iOS build by uploading an .IPA
+						Add an iOS build by uploading an .ipa or .zip
 					</p>
-					<%= link_to "Upload .IPA", new_ios_release_path, class: "btn btn-primary" %>
+					<%= link_to "Upload .IPA or .ZIP", new_ios_release_path, class: "btn btn-primary" %>
 					<div>						
 					</div>
 				</div>
@@ -17,19 +17,9 @@
 				<div class="jumbotron text-center">
 					<h3>Android</h3>
 					<p>
-						Add an Android build by uploading an .APK
+						Add an Android build by uploading an .apk
 					</p>
-					<%= link_to "Upload .APK", "#", class: "btn btn-primary" %>
-				</div>
-			</div>
-
-			<div class="col-md-6">
-				<div class="jumbotron text-center">
-					<h3>Calabash build for QA</h3>
-					<p>
-						Add an zipped iOS build with Calabash framework
-					</p>
-					<%= link_to "Upload .ZIP", "#", class: "btn btn-primary" %>
+					<%= link_to "Upload .APK", new_android_release_path, class: "btn btn-primary" %>
 				</div>
 			</div>
 

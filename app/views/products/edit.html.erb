@@ -7,7 +7,7 @@
 				<%= image_tag @product.icon.url, size: "60x60", class: "icon" %>
 				<%= f.file_field :icon %> <br/>
 				<%= f.label "Name:" %>
-				<%= @product.name %> <br/>
+				<%= f.text_field :name %> <br/>
 				<%= f.label "Identifier:" %>
 				<%= @product.identifier %> <br/>
 				<%= f.label :description %>

@@ -37,6 +37,9 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick', '~> 3.8.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'ipa-parser', '0.0.4'
+gem 'ruby_apk', '~> 0.7'
+gem 'rubyzip', '>= 1.2.0'
+gem 'zip-zip' # will load compatibility for old rubyzip API.
 gem "omniauth"
 gem 'omniauth-identity'
 gem 'gravtastic'

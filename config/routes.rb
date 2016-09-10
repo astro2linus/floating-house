@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :groups
   end
   resources :ios_releases
+  resources :android_releases
  
   resources :users, only: [:show, :index]
   resources :groups
