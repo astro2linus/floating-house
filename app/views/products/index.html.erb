@@ -26,7 +26,7 @@
 				<% last_release = product.releases.last %>
 				<tr>
 					<td>
-						<%= link_to (image_tag image_path('default_ios_app_icon.png'), size: "50x50", class: "icon"), product_releases_path(product) %>
+						<%= link_to (image_tag product.icon.url || image_path('default_ios_app_icon.png'), size: "50x50", class: "icon"), product_releases_path(product) %>
 					</td>
 					<td class="name">
 						<h6><%= link_to "#{product.name}", product_releases_path(product), class: "product_name" %>
