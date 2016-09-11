@@ -31,6 +31,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'mongoid', github: 'mongoid/mongoid'
+#gem "doorkeeper-mongodb", github: "doorkeeper-gem/doorkeeper-mongodb"
+gem "doorkeeper-mongodb", github: "astro2linus/doorkeeper-mongodb"
 gem 'bson_ext'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
@@ -45,9 +47,7 @@ gem 'omniauth-identity'
 gem 'gravtastic'
 gem 'cancancan'
 gem 'rolify'
-gem 'grape'
-gem 'grape-swagger'
-gem 'grape-swagger-rails'
+gem 'responders'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

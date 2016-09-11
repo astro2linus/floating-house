@@ -3,6 +3,7 @@
 		<ul>
 			<li><%= @user.email %></li>
 			<li><%= @user.name %></li>
+      <li><%= link_to "Your Applications", "/oauth/applications" %></li>
 		</ul>
 		<% @user.roles.each do |role| %>
 			<%= role.name %>

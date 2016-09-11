@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-  mount GrapeSwaggerRails::Engine => '/swagger'
-  mount FH::API => '/'
+  use_doorkeeper
+
+  namespace :api, defaults: { format: :json } do 
+    namespace :v1 do
+      resources :products
+    end
+  end
   
   root 'products#index'
   get 'products/upload', as: :upload
