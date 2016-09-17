@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do 
     namespace :v1 do
-      resources :products
+      resources :products do
+        resources :releases
+      end
+
+      resources :ios_releases
+      resources :android_releases
     end
   end
   
