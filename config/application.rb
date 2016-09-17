@@ -30,5 +30,6 @@ module OtaInstall
     # config.i18n.default_locale = :de
 
     config.time_zone = 'Beijing'
+    config.api_only = false
   end
 end

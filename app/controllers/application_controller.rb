@@ -12,11 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    if doorkeeper_token
-      @current_user ||= User.where(_id: doorkeeper_token.resource_owner_id).first
-    else
-      @current_user ||= User.where(_id: session[:user_id]).first
-    end
+    @current_user ||= User.where(_id: session[:user_id]).first
   end
 
   def validate_user
