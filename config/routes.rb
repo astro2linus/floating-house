@@ -6,10 +6,15 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :products do
         resources :releases
+        get 'download', on: :member, as: :latest_download
       end
 
-      resources :ios_releases
-      resources :android_releases
+      resources :ios_releases do 
+        get 'download', on: :member
+      end
+      resources :android_releases do
+        get 'download', on: :member
+      end
     end
   end
   

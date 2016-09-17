@@ -7,6 +7,20 @@ module Api
       def index
         respond_with Product.all
       end
+
+      def download
+        @product = Product.find params[:id]
+        @release = @product.releases.last
+
+        if @release.respond_to?(:ipa_file)
+          content = @release.ipa_file.read
+          send_data content, type: @release.ipa_file.content_type, :filename => @release.ipa_file
+        elsif @release.respond_to?(:apk_file)
+          send_data content, type: @release.apk_file.content_type, :filename => @release.apk_file
+        end
+        expires_in 0, public: true
+      end
+
     end
   end
 end
