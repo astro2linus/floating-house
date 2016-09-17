@@ -19,7 +19,7 @@ class ReleasesController < ApplicationController
 
 	def index
 		@product = Product.find(params[:product_id])
-		@releases = @product.releases
+		@releases = @product.releases.desc(:created_at)
 		#@releases = Release.all
 	end
 

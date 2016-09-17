@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
 	end
 
 	def upload
-		# authorize! :upload, Product, message: "You are not authorized to upload products"
+		authorize! :upload, Product, message: "You are not authorized to upload products"
   end
 
   def update
