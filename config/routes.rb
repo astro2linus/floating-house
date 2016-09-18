@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :products do 
     resources :releases
     resources :groups
+    get 'download', on: :member, as: :latest_download
   end
 
   resources :releases do

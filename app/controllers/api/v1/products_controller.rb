@@ -10,7 +10,7 @@ module Api
 
       def download
         @product = Product.find params[:id]
-        @release = @product.releases.asc(:created_at).last
+        @release = @product.releases.asc(:created_at).select {|r| r.extension != "ipa"}.last
 
         if @release.respond_to?(:ipa_file)
           content = @release.ipa_file.read

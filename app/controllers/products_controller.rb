@@ -26,6 +26,22 @@ class ProductsController < ApplicationController
 		end
 	end
 
+  def download
+  	# Download the latest release (zip or apk) for testing
+    @product = Product.find params[:id]
+    @release = @product.releases.asc(:created_at).select {|r| r.extension != "ipa"}.last
+    
+
+    if @release.respond_to?(:ipa_file)
+      content = @release.ipa_file.read
+      send_data content, type: @release.ipa_file.content_type, :filename => @release.ipa_file
+    elsif @release.respond_to?(:apk_file)
+      content = @release.apk_file.read
+      send_data content, type: @release.apk_file.content_type, :filename => @release.apk_file
+    end
+    expires_in 0, public: true
+  end
+
 	private
 		def product_params
 			params.require(:product).permit(:name, :description, :icon)

@@ -1,5 +1,5 @@
 <ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="#releases">Builds</a></li>
   <li role="presentation"><%= link_to "Manage Product", edit_product_url(@product) %></li>
-  <li role="presentation"><%= link_to "Download latest release", latest_download_api_v1_product_path(@product), :target => "_blank" %> </li>
+  <li role="presentation"><%= link_to "Download latest release (zip or apk)", latest_download_product_path(@product), :target => "_blank" %> </li>
 </ul>
