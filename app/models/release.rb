@@ -11,6 +11,7 @@ class Release
   has_one :icon, dependent: :destroy
 
   before_create :associate_product
+  after_save :update_product_timestamp
 
   protected
 
@@ -23,6 +24,10 @@ class Release
   		self.product.releases << self
   		self.product.save!
   	end
+  end
+
+  def update_product_timestamp
+    self.product.update_attribute(:updated_at, Time.now)
   end
 
 end

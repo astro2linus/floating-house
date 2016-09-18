@@ -1,14 +1,14 @@
 <script type="text/javascript">
-	$(function() {
-		if(bowser.ios) {
-			//alert(JSON.stringify(bowser, null, '    '));
-			$.get('https://'+ window.location.host + '/ssl_test')
-	   		.done()
-	   		.fail(function() {
-	   				window.location.replace("/install_certificate");
-	 			})
-		}
-	});
+// 	$(function() {
+// 		if(bowser.ios) {
+// 			//alert(JSON.stringify(bowser, null, '    '));
+// 			$.get('https://'+ window.location.host + '/ssl_test')
+// 	   		.done()
+// 	   		.fail(function() {
+// 	   				window.location.replace("/install_certificate");
+// 	 			})
+// 		}
+// 	});
 </script>
 <% provide(:title, "FH Apps") %>
 <div class="container">
@@ -23,20 +23,20 @@
 	<tbody>
 		<% @products.each do |product| %>
 			<% unless product.releases.blank? %>
-				<% last_release = product.releases.last %>
+				<% last_release = product.releases.asc(:created_at).last %>
 				<tr>
 					<td>
 						<%= link_to (image_tag product.icon.url || image_path('default_ios_app_icon.png'), size: "50x50", class: "icon"), product_releases_path(product) %>
 					</td>
 					<td class="name">
-						<h6><%= link_to "#{product.name}", product_releases_path(product), class: "product_name" %>
+						<h6><%= link_to "#{product.name}", product_releases_path(product), class: "product_name" %> <%= release_icon(last_release) %>
 							<br>
 							<small><%= last_release.identifier %></small>
 							<br>
 							<small><%= product.releases.last.updated_at.strftime('%b %e, %Y') %></small>
 						</h6>
 					</td>
-					<td class="version"><small><%= product.releases.last.version %></small></td>
+					<td class="version"><small><%= last_release.version %></small></td>
 				</tr>
 			<% end %>
 		<% end %>

@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 	#before_filter :authorize_manage_product, only: [:edit, :update, :destroy]
 	
 	def index
-		@products = Product.all
+		@products = Product.all.desc(:updated_at)
 	end
 
 	def edit

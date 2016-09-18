@@ -1,4 +1,5 @@
 class ReleasesController < ApplicationController
+
 	def new
 		@release = class_from_controller_name.new
 	end
@@ -19,7 +20,7 @@ class ReleasesController < ApplicationController
 
 	def index
 		@product = Product.find(params[:product_id])
-		@releases = @product.releases.desc(:created_at)
+		@releases = @product.releases.desc(:updated_at)
 		#@releases = Release.all
 	end
 
@@ -36,7 +37,8 @@ class ReleasesController < ApplicationController
 
 	private
 
-		def class_from_controller_name
-    	controller_name.singularize.camelize.constantize
-  	end
+	def class_from_controller_name
+  	controller_name.singularize.camelize.constantize
+	end
+
 end

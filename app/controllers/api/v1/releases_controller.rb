@@ -15,15 +15,19 @@ module Api
 
       def index
         @product = Product.find(params[:product_id])
-        @releases = @product.releases
+        @releases = @product.releases.desc(:updated_at)
         respond_with @releases
       end
 
       private
 
-        def class_from_controller_name
-          controller_name.singularize.camelize.constantize
-        end
+      def class_from_controller_name
+        controller_name.singularize.camelize.constantize
+      end
+
+      after_save do
+        @release.product.update_attribute(:updated_at, Time.now)
+      end
     end
   end
 end
