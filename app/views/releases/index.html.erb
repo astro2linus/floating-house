@@ -29,7 +29,7 @@
 						</td>
 						<td class="notes"><small><%= truncate(release.notes, length: 30) %> </small></td>
 						<td class="install-btn">
-							<%= link_to "Install", "itms-services://?action=download-manifest&url=#{manifest_ipa_url(release)}", class: "btn-sm btn-primary" %>
+							<%= link_to release.extension == "zip"? "Download" : "Install", download_or_install_link(release), class: "btn-sm btn-primary", :target => "_blank" %>
 						</td>
 					</tr>
 				<% end %>

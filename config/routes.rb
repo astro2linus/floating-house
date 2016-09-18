@@ -35,6 +35,10 @@ Rails.application.routes.draw do
     resources :releases
     resources :groups
   end
+
+  resources :releases do
+    get 'download', on: :member
+  end
   resources :ios_releases
   resources :android_releases
  

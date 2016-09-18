@@ -35,6 +35,20 @@ class ReleasesController < ApplicationController
 		end
 	end
 
+  def download
+    @release = Release.find(params[:id])
+
+    if @release.respond_to?(:ipa_file)
+      content = @release.ipa_file.read
+      send_data content, type: @release.ipa_file.content_type, :filename => @release.ipa_file, disposition: "inline"
+      expires_in 0, public: true
+    elsif @release.respond_to?(:apk_file)
+      content = @release.apk_file.read
+      send_data content, type: @release.apk_file.content_type, :filename => @release.apk_file, disposition: "inline"
+      expires_in 0, public: true
+    end
+  end
+
 	private
 
 	def class_from_controller_name
