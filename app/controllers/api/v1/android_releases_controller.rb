@@ -1,6 +1,6 @@
 module Api
   module V1
-    class AndroidReleasesController < ReleasesController
+    class AndroidReleasesController < Api::V1::ReleasesController
 
       def download
         @release = Release.find params[:id]

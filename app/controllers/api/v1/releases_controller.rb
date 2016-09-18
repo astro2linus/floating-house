@@ -24,10 +24,6 @@ module Api
       def class_from_controller_name
         controller_name.singularize.camelize.constantize
       end
-
-      after_save do
-        @release.product.update_attribute(:updated_at, Time.now)
-      end
     end
   end
 end
