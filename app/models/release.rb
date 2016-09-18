@@ -6,6 +6,7 @@ class Release
   field :display_name
   field :version
   field :notes
+  field :extension
 
   belongs_to :product
   has_one :icon, dependent: :destroy

@@ -4,7 +4,7 @@ class AndroidRelease < Release
   field :apk_file
   field :identifier
 
-  mount_uploader :apk_file, ReleaseUploader
+  mount_uploader :apk_file, AndroidReleaseUploader
   before_save :load_details_from_apk
   validates :apk_file, presence: true
 
@@ -16,5 +16,6 @@ class AndroidRelease < Release
     self.version =  data["manifest"]["android:versionName"]
     self.display_name = apk.manifest.label
     self.name = apk.manifest.label
+    self.extension = self.apk_file.file.extension
   end
 end

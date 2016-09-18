@@ -20,6 +20,7 @@
 						</td>
 						<td class="name">
 							<h5><small><%= link_to "#{release.name}", release, class: "product_name" %></small>
+								<%= release.extension if release.class == IosRelease%>
 								<br>
 								<small><%= release.version %></small>
 								<br>
