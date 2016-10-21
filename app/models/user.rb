@@ -49,7 +49,7 @@ class User
 
 	  def find_by_auth_through_email(auth)
 	  	if email = auth['info'].try(:[], 'email')
-	  		if user = User.where(email: email).first
+	  		if user = User.where(email: email.downcase).first
 	  			user.save_auth(auth)
 	  			user
 	  		end
