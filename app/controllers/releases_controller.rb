@@ -6,6 +6,7 @@ class ReleasesController < ApplicationController
 
 	def show
 		@release = Release.find params[:id]
+    @qr = RQRCode::QRCode.new( download_release_url(@release), :size => 7, :level => :h )
 	end
 
 	def create

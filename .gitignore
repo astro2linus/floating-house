@@ -15,3 +15,4 @@ public/uploads/
 .DS_Store
 public/server.crt
 secrets.yml
+mongoid.yml

@@ -49,6 +49,7 @@ gem 'cancancan'
 gem 'rolify'
 gem 'responders'
 gem 'rails-api'
+gem 'rqrcode'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
